@@ -1,0 +1,12 @@
+const express=require('express')
+const app=express()
+const db=require('./db/db')
+const bodyParser=require('body-parser')
+app.use(bodyParser.json())
+app.use(express.json());
+const userRoute=require('./route/route')
+app.use(userRoute)
+app.listen(3000,()=>{
+    db()
+    console.log("server is running 3000")
+})
